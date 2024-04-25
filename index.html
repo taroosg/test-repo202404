@@ -9,6 +9,24 @@
 
 <body>
   <h1>チーズアカデミー</h1>
+
+  <p>結果：<span id="result"></span></p>
+  <button type="button" value="0">グー</button>
+  <button type="button" value="1">チョキ</button>
+  <button type="button" value="2">パー</button>
 </body>
+
+<script>
+
+  [...document.getElementsByTagName('button')].forEach((button) => {
+    button.addEventListener('click', (e) => {
+      document.getElementById('result').textContent =
+        [['draw', 'win', 'lose'],
+        ['win', 'draw', 'lose'],
+        ['lose', 'win', 'draw']][e.target.value][~~(Math.random() * 3)];
+    });
+  });
+
+</script>
 
 </html>
